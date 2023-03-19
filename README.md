@@ -483,3 +483,107 @@ where department_name = 'IT';
 #
 #
 #
+
+# Create Datebase And Tables
+#
+
+CREATE DATABASE IF NOT EXISTS project;
+
+#
+
+USE project;
+CREATE TABLE IF NOT EXISTS user(
+	username VARCHAR (50) PRIMARY KEY,
+    first_name VARCHAR (50) NOT NULL,
+    last_name VARCHAR (50) NOT NULL,
+    email VARCHAR (100) NOT NULL,
+    dob DATE,
+    phone VARCHAR (20),
+    password VARCHAR (50) NOT NULL
+);
+
+DESCRIBE user;
+
+![image](https://user-images.githubusercontent.com/116251925/226195813-bbb253a4-bd66-48f5-b0fe-e6bc4e63cefc.png)
+
+#
+
+ALTER TABLE user
+ADD whatsapp_no INT;
+
+DESCRIBE user;
+
+![image](https://user-images.githubusercontent.com/116251925/226195873-911292f2-2e48-4050-af7c-96456596769c.png)
+
+#
+
+ALTER TABLE user
+MODIFY whatsapp_no VARCHAR(20);
+
+DESCRIBE user;
+
+![image](https://user-images.githubusercontent.com/116251925/226195892-39ccae69-4378-4d56-b11a-3c67f21eaa08.png)
+
+#
+
+ALTER TABLE user
+DROP whatsapp_no;
+
+DESCRIBE user;
+
+![image](https://user-images.githubusercontent.com/116251925/226195916-54c0efd6-6e89-44e5-9d37-043796da65a8.png)
+
+#
+
+ALTER TABLE user
+RENAME COLUMN dob TO data_of_birth;
+
+DESCRIBE user;
+
+![image](https://user-images.githubusercontent.com/116251925/226196044-7d731c09-f1b0-4eb8-a06d-5b8fe7a9e1bc.png)
+
+#
+
+CREATE TABLE IF NOT EXISTS countries(
+	country_id VARCHAR (2) PRIMARY KEY NOT NULL,
+	country_name VARCHAR (40),
+    region_id INT
+);
+
+DESCRIBE countries;
+
+![image](https://user-images.githubusercontent.com/116251925/226196075-d8d642bd-0f03-4713-8f12-994d48ed46e2.png)
+
+#
+
+ALTER TABLE countries
+ADD country_code VARCHAR(3) NOT NULL;
+
+DESCRIBE countries;
+
+![image](https://user-images.githubusercontent.com/116251925/226196099-8c227554-38c2-41eb-810b-3481171d7e09.png)
+
+#
+
+ALTER TABLE countries
+DROP country_code; 
+
+DESCRIBE countries;
+
+![image](https://user-images.githubusercontent.com/116251925/226196124-d317576d-779e-451d-bc2f-0b107a78e834.png)
+
+#
+
+INSERT INTO countries(country_id, country_name, region_id)  
+VALUES (1, "india", 1),
+(2,'India', 2);
+
+SELECT *
+FROM countries;
+
+![image](https://user-images.githubusercontent.com/116251925/226196138-07b9a1af-e0f0-499b-b841-aa2890a65be5.png)
+
+#
+#
+#
+
